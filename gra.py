@@ -39,7 +39,7 @@ obraz_start.penup()
 obraz_start.goto(0, 50)
 obraz_start.color("blue")
 obraz_start.shape("square")
-obraz_start.size(20)
+obraz_start.turtlesize(20)
 
 def game_run():    
     run.clear()
