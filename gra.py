@@ -48,9 +48,8 @@ def game_run():
     napisFelix.clear()
     napisFelix.hideturtle()
 
-   screen.update()
+    screen.update()
 
-    
     screen.onkey(None, "space")
 
     muzyka = arcade.load_sound("muzyka.mp3")  # mp3 lub wav
