@@ -28,7 +28,7 @@ hud.write(f"Życia: {lives}", font=("Arial", 20, "normal"))
 def update_hud():
     hud.clear()
     hud.goto(-300, 250)
-    hud.write(f"Życia: {lives}   Punkty: {points}   Score: {score}", font=("Arial", 20, "normal"))
+    hud.write(f"Lives: {lives}   Onions: {points}   Score: {score}", font=("Arial", 20, "normal"))
 
 # plansza: 1 = platforma, 0 = pusty
 platforma = [
