@@ -154,7 +154,7 @@ def game_run():
         lives -= 1
     
         hud.clear()
-        hud.write(f"Lives: {lives}   Onions: {points}   Score: {score}", font=("Arial", 16, "normal"))
+        hud.write(f"Lives: {lives}   Onions: {points}   Score: {score}", font=("Arial", 20, "normal"))
     
         if lives == 0 or lives < 0:
             hud.goto(0, 0)
