@@ -46,6 +46,9 @@ def game_run():
     run.clear()
     napisFelix.clear()
     napisFelix.hideturtle()
+
+    screen.upade()
+    
     screen.onkey(None, "space")
  
     monety = []
