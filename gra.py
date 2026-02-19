@@ -25,14 +25,6 @@ screen.bgcolor("black")
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 screen.title("Jumping Square")
 
-run = turtle.Turtle()
-
-run.hideturtle()
-run.penup()
-run.goto(0, 0)
-run.color("green")
-run.write("Press Space", align="center", font=("Arial", 26, "bold"))
-
 obraz_start = turtle.Turtle()
 
 obraz_start.penup()
@@ -40,6 +32,14 @@ obraz_start.goto(0, 50)
 obraz_start.color("blue")
 obraz_start.shape("square")
 obraz_start.turtlesize(10)
+
+run = turtle.Turtle()
+
+run.hideturtle()
+run.penup()
+run.goto(0, 0)
+run.color("green")
+run.write("Press Space", align="center", font=("Arial", 26, "bold"))
 
 def game_run():    
     run.clear()
