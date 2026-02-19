@@ -23,13 +23,13 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
-sciezka2 = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat/music_gamekwadrat"), "coin.wav")
+sciezka2 = os.path.join(os.path.expanduser("gamekwadrat/music_gamekwadrat"), "coin.wav")
 muzyka2 = arcade.load_sound(sciezka2) 
 
-sciezka = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat/music_gamekwadrat"), "gameover.wav")
+sciezka = os.path.join(os.path.expanduser("gamekwadrat/music_gamekwadrat"), "gameover.wav")
 muzyka = arcade.load_sound(sciezka) 
 
-sciezka3 = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat/music_gamekwadrat"), "I_Win.mp3")
+sciezka3 = os.path.join(os.path.expanduser("gamekwadrat/music_gamekwadrat"), "I_Win.mp3")
 muzyka3 = arcade.load_sound(sciezka3) 
 
 # Szybkie rysowanie
