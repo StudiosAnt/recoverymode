@@ -25,9 +25,9 @@ teleport = False
 
 BASE_DIR = "gamekwadrat"
 
-muzyka2 = arcade.load_sound(os.path.join(MUSIC_DIR, "coin.wav"))
-muzyka = arcade.load_sound(os.path.join(MUSIC_DIR, "gameover.wav"))
-muzyka3 = arcade.load_sound(os.path.join(MUSIC_DIR, "I_Win.mp3"))
+muzyka2 = arcade.load_sound(os.path.join(BASE_DIR, "coin.wav"))
+muzyka = arcade.load_sound(os.path.join(BASE_DIR, "gameover.wav"))
+muzyka3 = arcade.load_sound(os.path.join(BASE_DIR, "I_Win.wav"))
 
 # Szybkie rysowanie
 screen = turtle.Screen()
