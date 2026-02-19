@@ -23,6 +23,14 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
+sciezka2 = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat/music_gamekwadrat"), "coin.wav")
+muzyka2 = arcade.load_sound(sciezka2) 
+
+sciezka = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat/music_gamekwadrat"), "gameover.wav")
+muzyka = arcade.load_sound(sciezka) 
+
+
+
 # Szybkie rysowanie
 screen = turtle.Screen()
 screen.bgcolor("black")
@@ -57,9 +65,6 @@ def game_run():
 
     screen.onkey(None, "space")
     
-    sciezka2 = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat/music_gamekwadrat"), "coin.wav")
-    muzyka2 = arcade.load_sound(sciezka2) 
-
     monety = []
     
     hud = turtle.Turtle()
@@ -174,6 +179,7 @@ def game_run():
             hud.write("GAME OVER", align="center", font=("Arial", 50, "bold"))
             game_active = False
             gracz.hideturtle()
+            muzyka_player = arcade.play_sound(muzyka)   
             return
     
         # cofnięcie gracza na start
