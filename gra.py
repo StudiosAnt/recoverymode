@@ -197,7 +197,8 @@ def game_run():
         game_active = False
         gracz.hideturtle()
         komunikat.goto(0, 0)
-        komunikat.write("You Win!!!", align="center", font=("Arial", 50, "bold"))    
+        komunikat.write("You Win!!!", align="center", font=("Arial", 50, "bold")) 
+        muzyka_player3 = arcade.play_sound(muzyka3)
         
     def przejdz_do_nastepnego_poziomu():
         global kwadraty, przeszkody, monety, meta, platforma, level, teleport, ile_trzeba_do_mety
@@ -419,9 +420,6 @@ def game_run():
                 score += 100
                 update_hud()
                 gracz.dy = 0
-                muzyka_player3 = arcade.play_sound(muzyka3)
-
-                screen.ontimer(przejdz_do_nastepnego_poziomu, 7000)
                 
                 przejdz_do_nastepnego_poziomu()
     
