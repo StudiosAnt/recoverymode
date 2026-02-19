@@ -26,6 +26,7 @@ screen.title("Jumping Square")
 
 obraz_start = turtle.Turtle()
 
+obraz_start.showturtle()
 obraz_start.penup()
 obraz_start.goto(0, 50)
 obraz_start.color("blue")
