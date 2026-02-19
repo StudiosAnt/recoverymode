@@ -52,10 +52,9 @@ def game_run():
 
     screen.onkey(None, "space")
 
-    muzyka = arcade.load_sound("muzyka.mp3")  # mp3 lub wav
+    sciezka = os.path.join(os.path.dirname(__file__), "muzyka.mp3")
+    muzyka = arcade.load_sound(sciezka)
     
-    player = arcade.play_sound(muzyka, looping=True)  # looping=True dla pętli
- 
     monety = []
     
     hud = turtle.Turtle()
