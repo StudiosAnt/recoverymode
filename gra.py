@@ -18,7 +18,6 @@ max_poziom = 4
 ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
-game_started = False
 
 # Szybkie rysowanie
 screen = turtle.Screen()
@@ -43,17 +42,9 @@ run.write("Press Space", align="center", font=("Arial", 50, "bold"))
 
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 
-def game_run():   
-    global game_started
-    
-    if not game_started:  # jeśli gra jeszcze nie wystartowała
-        game_started = True  # ustawiamy, że już wystartowała
-        run.clear()
-        napisFelix.clear()
-
-    else:
-        pass
-    
+def game_run(): 
+    screen.onkey(None, "space")
+ 
     monety = []
     
     hud = turtle.Turtle()
