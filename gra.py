@@ -24,14 +24,12 @@ screen = turtle.Screen()
 screen.bgcolor("black")
 screen.title("Jumping Square")
 
-obraz_start = turtle.Turtle()
-
-obraz_start.showturtle()
-obraz_start.penup()
-obraz_start.goto(0, 50)
-obraz_start.color("blue")
-obraz_start.shape("square")
-obraz_start.turtlesize(10)
+napisFelix = turtle.Turtle
+napisFelix.color("blue")
+napisFelix.penup()
+napisFelix.showturtle()
+napisFelix.goto(0, 60)
+napisFelix.write("by Felix", align="center", font=("Arial", 30, "bold"))
 
 run = turtle.Turtle()
 
@@ -39,14 +37,14 @@ run.hideturtle()
 run.penup()
 run.goto(0, 0)
 run.color("green")
-run.write("Press Space", align="center", font=("Arial", 26, "bold"))
+run.write("Press Space", align="center", font=("Arial", 30, "bold"))
 
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 
 def game_run():    
     run.clear()
-    
-    obraz_start.hideturtle()
+
+    napisFelix.clear
     
     monety = []
     
