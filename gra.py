@@ -24,19 +24,11 @@ game_active = True
 teleport = False
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# folder z muzyką
 MUSIC_DIR = os.path.join(BASE_DIR, "music_gamekwadrat")
 
-# pliki
-sciezka2 = os.path.join(MUSIC_DIR, "coin.wav")
-muzyka2 = arcade.load_sound(sciezka2)
-
-sciezka = os.path.join(MUSIC_DIR, "gameover.wav")
-muzyka = arcade.load_sound(sciezka)
-
-sciezka3 = os.path.join(MUSIC_DIR, "I_Win.mp3")
-muzyka3 = arcade.load_sound(sciezka3)
+muzyka2 = arcade.load_sound(os.path.join(MUSIC_DIR, "coin.wav"))
+muzyka = arcade.load_sound(os.path.join(MUSIC_DIR, "gameover.wav"))
+muzyka3 = arcade.load_sound(os.path.join(MUSIC_DIR, "I_Win.mp3"))
 
 # Szybkie rysowanie
 screen = turtle.Screen()
