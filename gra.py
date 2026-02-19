@@ -63,9 +63,7 @@ def game_run():
     muzyka_player = arcade.play_sound(muzyka)
 
     sciezka2 = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat"), "coin.wav")
-    muzyka2 = arcade.load_sound(sciezka)
-
-    muzyka_player2 = arcade.play_sound(muzyka)    
+    muzyka2 = arcade.load_sound(sciezka) 
 
     monety = []
     
@@ -407,6 +405,7 @@ def game_run():
                 update_hud()
                 m.hideturtle()           # znika wizualnie
                 monety.remove(m)         # usuwa z listy, żeby nie liczyło się dalej
+                muzyka_player2 = arcade.play_sound(muzyka)   
                 break
         # zamiast kwadrat/2 używamy kwadrat
         if meta and abs(gracz.xcor() - meta.xcor()) < kwadrat and abs(gracz.ycor() - meta.ycor()) < kwadrat and points >= ile_trzeba_do_mety:
