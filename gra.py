@@ -59,8 +59,8 @@ def game_run():
     
     sciezka = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat"), "muzyka.wav")
     muzyka = arcade.load_sound(sciezka)
-    muzyka_player = arcade.play_sound(muzyka, looping=True)
 
+    muzyka_player = arcade.play_sound(muzyka)
 
     monety = []
     
