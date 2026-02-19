@@ -24,7 +24,7 @@ screen = turtle.Screen()
 screen.bgcolor("black")
 screen.title("Jumping Square")
 
-napisFelix = turtle.Turtle
+napisFelix = turtle.Turtle()
 
 napisFelix.showturtle()
 napisFelix.goto(0, 60)
