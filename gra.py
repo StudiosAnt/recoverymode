@@ -25,7 +25,7 @@ screen.bgcolor("black")
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 screen.title("Jumping Square")
 
-run = turtle.Trutle()
+run = turtle.Turtle()
 
 run.hideturtle()
 run.penup()
