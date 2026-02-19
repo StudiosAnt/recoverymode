@@ -23,14 +23,16 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
-sciezka2 = os.path.join(os.path.expanduser("~/gamekwadrat/music_gamekwadrat"), "coin.wav")
-muzyka2 = arcade.load_sound(sciezka2) 
+base_path = os.path.join(os.path.expanduser("~"), "gamekwadrat", "music_gamekwadrat")
 
-sciezka = os.path.join(os.path.expanduser("~/gamekwadrat/music_gamekwadrat"), "gameover.wav")
-muzyka = arcade.load_sound(sciezka) 
+sciezka2 = os.path.join(base_path, "coin.wav")
+muzyka2 = arcade.load_sound(os.path.abspath(sciezka2))  # tu zamieniamy na pełną ścieżkę
 
-sciezka3 = os.path.join(os.path.expanduser("~/gamekwadrat/music_gamekwadrat"), "I_Win.mp3")
-muzyka3 = arcade.load_sound(sciezka3) 
+sciezka = os.path.join(base_path, "gameover.wav")
+muzyka = arcade.load_sound(os.path.abspath(sciezka))
+
+sciezka3 = os.path.join(base_path, "I_Win.mp3")
+muzyka3 = arcade.load_sound(os.path.abspath(sciezka3))
 
 # Szybkie rysowanie
 screen = turtle.Screen()
