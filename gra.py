@@ -22,7 +22,6 @@ teleport = False
 # Szybkie rysowanie
 screen = turtle.Screen()
 screen.bgcolor("black")
-screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 screen.title("Jumping Square")
 
 obraz_start = turtle.Turtle()
@@ -41,7 +40,7 @@ run.goto(0, 0)
 run.color("green")
 run.write("Press Space", align="center", font=("Arial", 26, "bold"))
 
-screen.update()
+screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 
 def game_run():    
     run.clear()
