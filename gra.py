@@ -43,7 +43,9 @@ run.write("Press Space", align="center", font=("Arial", 26, "bold"))
 
 def game_run():    
     run.clear()
+    
     obraz_start.clear()
+    
     monety = []
     
     hud = turtle.Turtle()
