@@ -53,7 +53,7 @@ def game_run():
 
     screen.onkey(None, "space")
 
-    sciezka = os.path.join(os.path.dirname(__file__), "Desktop/gamekwadrat/muzyka.mp3")
+    sciezka = os.path.join(os.path.dirname(__file__), "Desktop/gamekwadrat/muzyka.wav")
     muzyka = arcade.load_sound(sciezka)
     
     monety = []
