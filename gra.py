@@ -41,6 +41,8 @@ run.goto(0, 0)
 run.color("green")
 run.write("Press Space", align="center", font=("Arial", 26, "bold"))
 
+screen.update()
+
 def game_run():    
     run.clear()
     
