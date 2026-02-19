@@ -25,10 +25,11 @@ screen.bgcolor("black")
 screen.title("Jumping Square")
 
 napisFelix = turtle.Turtle
-napisFelix.color("blue")
-napisFelix.penup()
+
 napisFelix.showturtle()
 napisFelix.goto(0, 60)
+napisFelix.color("blue")
+napisFelix.penup()
 napisFelix.write("by Felix", align="center", font=("Arial", 30, "bold"))
 
 run = turtle.Turtle()
