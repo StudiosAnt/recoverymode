@@ -387,7 +387,7 @@ def game_run():
         gracz.sety(gracz.ycor() + gracz.dy)
     
         # kolizja z platformą (tylko kwadraty!)
-        for k in kwadraty:
+        for k in kwadrat:
             if abs(k.xcor() - gracz.xcor()) < kwadrat:
                 if gracz.dy <= 0:  # spada w dół
                 # jeśli gracz wleciał w platformę lub jest na niej
