@@ -16,7 +16,7 @@ teleport = False
 screen = turtle.Screen()
 screen.bgcolor("black")
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
-screen.title("Jumping Square Pro")
+screen.title("Jumping Square")
 
 monety = []
 
