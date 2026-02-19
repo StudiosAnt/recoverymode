@@ -33,7 +33,7 @@ run.goto(0, 0)
 run.color("green")
 run.write("Press Space", align="center", font=("Arial", 26, "bold"))
 
-def gra_run():    
+def game_run():    
     monety = []
     
     hud = turtle.Turtle()
