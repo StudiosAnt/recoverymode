@@ -16,7 +16,7 @@ teleport = False
 screen = turtle.Screen()
 screen.bgcolor("black")
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
-screen.title("Jumping Square")
+screen.title("Jumping Square Pro")
 
 monety = []
 
@@ -25,7 +25,7 @@ hud.hideturtle()
 hud.penup()
 hud.color("white")
 hud.goto(-300, 250)
-hud.write(f"Życia: {lives}", font=("Arial", 20, "normal"))
+hud.write(f"Lives: {lives}   Onions: {points}   Score: {score}", font=("Arial", 20, "normal"))
 
 def update_hud():
     hud.clear()
