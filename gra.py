@@ -12,6 +12,8 @@ import random
 import arcade
 import os
 
+muzyka_player = None
+
 lives = 3
 points = 0  # licznik punktów
 score = 0
@@ -45,6 +47,8 @@ run.write("Press Space", align="center", font=("Arial", 50, "bold"))
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 
 def game_run(): 
+    global muzyka_player
+    
     run.clear()
     napisFelix.clear()
     napisFelix.hideturtle()
@@ -52,10 +56,12 @@ def game_run():
     screen.update()
 
     screen.onkey(None, "space")
-
-    sciezka = os.path.join(os.path.dirname(__file__), "Desktop/gamekwadrat/muzyka.wav")
-    muzyka = arcade.load_sound(sciezka)
     
+    sciezka = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat"), "muzyka.wav")
+    muzyka = arcade.load_sound(sciezka)
+    muzyka_player = arcade.play_sound(muzyka, looping=True)
+
+
     monety = []
     
     hud = turtle.Turtle()
