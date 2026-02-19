@@ -29,7 +29,8 @@ muzyka2 = arcade.load_sound(sciezka2)
 sciezka = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat/music_gamekwadrat"), "gameover.wav")
 muzyka = arcade.load_sound(sciezka) 
 
-
+sciezka3 = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat/music_gamekwadrat"), "I_Win.mp3")
+muzyka3 = arcade.load_sound(sciezka3) 
 
 # Szybkie rysowanie
 screen = turtle.Screen()
@@ -418,6 +419,7 @@ def game_run():
                 score += 100
                 update_hud()
                 gracz.dy = 0
+                muzyka_player3 = arcade.play_sound(muzyka3)   
                 przejdz_do_nastepnego_poziomu()
     
         screen.update()
