@@ -34,6 +34,7 @@ run.color("green")
 run.write("Press Space", align="center", font=("Arial", 26, "bold"))
 
 def game_run():    
+    run.clear()
     monety = []
     
     hud = turtle.Turtle()
