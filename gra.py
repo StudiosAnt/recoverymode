@@ -56,7 +56,7 @@ run.write("Press Space", align="center", font=("Arial", 50, "bold"))
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 
 def game_run(): 
-    global muzyka_player
+    global muzyka_player, kwadraty, przeszkody, monety, meta
     
     run.clear()
     napisFelix.clear()
