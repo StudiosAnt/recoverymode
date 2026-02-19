@@ -36,16 +36,16 @@ run = turtle.Turtle()
 
 run.hideturtle()
 run.penup()
-run.goto(0, 0)
+run.goto(0, -10)
 run.color("green")
-run.write("Press Space", align="center", font=("Arial", 30, "bold"))
+run.write("Press Space", align="center", font=("Arial", 50, "bold"))
 
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 
 def game_run():    
     run.clear()
 
-    napisFelix.clear
+    napisFelix.clear()
     
     monety = []
     
