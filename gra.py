@@ -24,7 +24,7 @@ game_active = True
 teleport = False
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MUSIC_DIR = os.path.join(BASE_DIR, "music_gamekwadrat")
+MUSIC_DIR = os.path.join(BASE_DIR, "gamekwadrat")
 
 muzyka2 = arcade.load_sound(os.path.join(MUSIC_DIR, "coin.wav"))
 muzyka = arcade.load_sound(os.path.join(MUSIC_DIR, "gameover.wav"))
