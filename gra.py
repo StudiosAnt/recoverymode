@@ -419,7 +419,10 @@ def game_run():
                 score += 100
                 update_hud()
                 gracz.dy = 0
-                muzyka_player3 = arcade.play_sound(muzyka3)   
+                muzyka_player3 = arcade.play_sound(muzyka3)
+
+                screen.ontimer(przejdz_do_nastepnego_poziomu, 7000)
+                
                 przejdz_do_nastepnego_poziomu()
     
         screen.update()
