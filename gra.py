@@ -125,7 +125,7 @@ def lose_life():
     lives -= 1
 
     hud.clear()
-    hud.write(f"Życia: {lives}", font=("Arial", 16, "normal"))
+    hud.write(f"Lives: {lives}   Onions: {points}   Score: {score}", font=("Arial", 16, "normal"))
 
     if lives == 0 or lives < 0:
         hud.goto(0, 0)
@@ -148,7 +148,7 @@ def wygrana():
     game_active = False
     gracz.hideturtle()
     komunikat.goto(0, 0)
-    komunikat.write("WYGRAŁEŚ!", align="center", font=("Arial", 50, "bold"))    
+    komunikat.write("You Win!!!", align="center", font=("Arial", 50, "bold"))    
     
 def przejdz_do_nastepnego_poziomu():
     global kwadraty, przeszkody, monety, meta, platforma, level, teleport, ile_trzeba_do_mety
