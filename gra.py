@@ -43,6 +43,9 @@ run.write("Press Space", align="center", font=("Arial", 50, "bold"))
 screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 
 def game_run(): 
+    run.clear()
+    napisFelix.clear()
+    napisFelix.hideturtle()
     screen.onkey(None, "space")
  
     monety = []
