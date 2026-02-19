@@ -9,6 +9,7 @@
 
 import turtle
 import random
+import arcade
 
 lives = 3
 points = 0  # licznik punktów
@@ -50,6 +51,10 @@ def game_run():
     screen.upade()
     
     screen.onkey(None, "space")
+
+    muzyka = arcade.load_sound("muzyka.mp3")  # mp3 lub wav
+    
+    player = arcade.play_sound(muzyka, looping=True)  # looping=True dla pętli
  
     monety = []
     
