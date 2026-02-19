@@ -10,6 +10,7 @@
 import turtle
 import random
 import arcade
+import os
 
 lives = 3
 points = 0  # licznik punktów
