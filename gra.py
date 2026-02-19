@@ -48,7 +48,8 @@ def game_run():
     napisFelix.clear()
     napisFelix.hideturtle()
 
-    screen.upade()
+   screen.update()
+
     
     screen.onkey(None, "space")
 
