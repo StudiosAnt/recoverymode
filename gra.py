@@ -33,6 +33,14 @@ run.goto(0, 0)
 run.color("green")
 run.write("Press Space", align="center", font=("Arial", 26, "bold"))
 
+obraz_start = turtle.Trutle()
+
+obraz_start.penup()
+obraz_start.goto(0, 50)
+obraz_start.color("blue")
+obraz_start.shape("square")
+obraz_start.size(20)
+
 def game_run():    
     run.clear()
     monety = []
