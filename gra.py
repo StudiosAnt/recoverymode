@@ -62,6 +62,11 @@ def game_run():
 
     muzyka_player = arcade.play_sound(muzyka)
 
+    sciezka2 = os.path.join(os.path.expanduser("~/Desktop/gamekwadrat"), "coin.wav")
+    muzyka2 = arcade.load_sound(sciezka)
+
+    muzyka_player2 = arcade.play_sound(muzyka)    
+
     monety = []
     
     hud = turtle.Turtle()
