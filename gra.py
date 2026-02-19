@@ -1,3 +1,10 @@
+#Copyright (c) 2026 Fff2468
+
+#Ta gra jest własnością autora. 
+#Nie wolno kopiować, rozpowszechniać ani używać gry w celach komercyjnych bez zgody autora.
+
+#Wszystkie prawa zastrzeżone.
+
 #game
 
 import turtle
