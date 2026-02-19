@@ -28,8 +28,8 @@ napisFelix = turtle.Turtle
 
 napisFelix.showturtle()
 napisFelix.goto(0, 60)
-napisFelix.color("blue")
 napisFelix.penup()
+napisFelix.color("blue")
 napisFelix.write("by Felix", align="center", font=("Arial", 30, "bold"))
 
 run = turtle.Turtle()
