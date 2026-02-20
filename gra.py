@@ -7,6 +7,18 @@
 
 #game
 
+import threading
+import sys
+
+def excepthook(args):
+    # ignorujemy ValueError związane z signal w macOS
+    if isinstance(args.exc_value, ValueError) and "signal only works in main thread" in str(args.exc_value):
+        pass
+    else:
+        sys.__excepthook__(args.exc_type, args.exc_value, args.exc_traceback)
+
+threading.excepthook = excepthook
+
 import turtle
 import random
 import arcade
