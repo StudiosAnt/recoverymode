@@ -112,13 +112,12 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
+ASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-coin_sound = os.path.join(SOUNDS_DIR, "coin.wav")
-gameover_sound = os.path.join(SOUNDS_DIR, "gameover.wav")
-win_sound = os.path.join(SOUNDS_DIR, "I_Win.wav")
-background_music = os.path.join(SOUNDS_DIR, "zone1.wav")
+coin_sound = os.path.join(BASE_DIR, "coin.wav")
+gameover_sound = os.path.join(BASE_DIR, "gameover.wav")
+win_sound = os.path.join(BASE_DIR, "I_Win.wav")
+background_music = os.path.join(BASE_DIR, "zone1.wav")
 
 # Szybkie rysowanie
 screen = turtle.Screen()
@@ -147,7 +146,21 @@ def game_run():
     global muzyka_player, kwadraty, przeszkody, monety, meta
 
     def play_sound(sound_path):
-        subprocess.Popen(["afplay", sound_path])
+        try:
+            # próbujemy macOS
+            subprocess.Popen(["afplay", sound_path])
+        except Exception:
+            try:
+                # jeśli nie zadziała, Windows
+                subprocess.Popen([
+                    "powershell",
+                    "-c",
+                    f"(New-Object Media.SoundPlayer '{sound_path}').PlaySync();"
+                ])
+            except Exception as e:
+                print(f"Nie udało się odtworzyć dźwięku: {e}")
+
+
     
     run.clear()
     napisFelix.clear()
