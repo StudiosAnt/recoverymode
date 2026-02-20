@@ -21,7 +21,6 @@ threading.excepthook = excepthook
 
 import turtle
 import random
-import threading   # żeby nie blokowało gry
 import sys
 import os
 import json
