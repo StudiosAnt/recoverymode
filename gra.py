@@ -16,7 +16,53 @@ import json
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 
-# Folder gry
+# Folder gr
+
+
+
+
+BASE_DIR = os.path.expanduser("~/gamekwadrat")  # folder gry
+os.makedirs(BASE_DIR, exist_ok=True)            # tworzy folder jeśli go nie ma
+
+SAVE_FILE = os.path.join(BASE_DIR, "score.json")  # plik score w folderze gry
+
+def save_score(score):
+    with open(SAVE_FILE, "w") as f:
+        json.dump({"score": score}, f)
+
+def load_score():
+    try:
+        with open(SAVE_FILE, "r") as f:
+            data = json.load(f)
+            return data.get("score", 0)
+    except FileNotFoundError:
+        return 0
+
+muzyka_player = None
+
+lives = 3
+points = 0  # licznik punktów
+score = load_score()
+level = 1
+max_poziom = 4
+ile_trzeba_do_mety = 150
+game_active = True
+teleport = False
+
+ASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
+
+# wczytywanie muzyki
+muzyka2 = arcade.load_sound(os.path.join(SOUNDS_DIR, "coin.wav"))
+muzyka = arcade.load_sound(os.path.join(SOUNDS_DIR, "gameover.wav"))
+muzyka3 = arcade.load_sound(os.path.join(SOUNDS_DIR, "I_Win.wav"))
+
+# Szybkie rysowanie
+screen = turtle.Screen()
+screen.bgcolor("black")
+screen.title("Jumping Square")
+
+
 BASE_DIR = os.path.expanduser("~/gamekwadrat")
 os.makedirs(BASE_DIR, exist_ok=True)
 
@@ -67,50 +113,6 @@ def login_account():
 user, pwd = login_account()
 print(f"Zalogowano: {user}")
 
-
-
-
-
-BASE_DIR = os.path.expanduser("~/gamekwadrat")  # folder gry
-os.makedirs(BASE_DIR, exist_ok=True)            # tworzy folder jeśli go nie ma
-
-SAVE_FILE = os.path.join(BASE_DIR, "score.json")  # plik score w folderze gry
-
-def save_score(score):
-    with open(SAVE_FILE, "w") as f:
-        json.dump({"score": score}, f)
-
-def load_score():
-    try:
-        with open(SAVE_FILE, "r") as f:
-            data = json.load(f)
-            return data.get("score", 0)
-    except FileNotFoundError:
-        return 0
-
-muzyka_player = None
-
-lives = 3
-points = 0  # licznik punktów
-score = load_score()
-level = 1
-max_poziom = 4
-ile_trzeba_do_mety = 150
-game_active = True
-teleport = False
-
-ASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
-
-# wczytywanie muzyki
-muzyka2 = arcade.load_sound(os.path.join(SOUNDS_DIR, "coin.wav"))
-muzyka = arcade.load_sound(os.path.join(SOUNDS_DIR, "gameover.wav"))
-muzyka3 = arcade.load_sound(os.path.join(SOUNDS_DIR, "I_Win.wav"))
-
-# Szybkie rysowanie
-screen = turtle.Screen()
-screen.bgcolor("black")
-screen.title("Jumping Square")
 
 napisFelix = turtle.Turtle()
 
