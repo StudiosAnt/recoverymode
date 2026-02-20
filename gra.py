@@ -146,19 +146,26 @@ def game_run():
     global muzyka_player, kwadraty, przeszkody, monety, meta
 
     def play_sound(sound_path):
+    """Odtwarzanie dźwięku na macOS lub Windows bez arcade"""
+        if not os.path.exists(sound_path):
+            print(f"Plik nie istnieje: {sound_path}")
+            return
         try:
-            # próbujemy macOS
-            subprocess.Popen(["afplay", sound_path])
-        except Exception:
-            try:
-                # jeśli nie zadziała, Windows
+            if sys.platform == "darwin":  # macOS
+                subprocess.Popen(["afplay", sound_path])
+            elif sys.platform.startswith("win"):  # Windows
+                # powershell odtwarza WAV bez okien
                 subprocess.Popen([
                     "powershell",
                     "-c",
                     f"(New-Object Media.SoundPlayer '{sound_path}').PlaySync();"
                 ])
-            except Exception as e:
-                print(f"Nie udało się odtworzyć dźwięku: {e}")
+            else:
+                print("Platforma nieobsługiwana")
+        except      Exception as e:
+            print(f"Nie udało się odtworzyć dźwięku: {e}")
+
+
 
 
     
