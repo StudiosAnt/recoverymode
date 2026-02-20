@@ -21,13 +21,13 @@ threading.excepthook = excepthook
 
 import turtle
 import random
-from playsound import playsound
 import threading   # żeby nie blokowało gry
 import sys
 import os
 import json
 import tkinter as tk
 from tkinter import simpledialog, messagebox
+import threading   # żeby nie blokowało gry
 
 BASE_DIR = os.path.expanduser("~/gamekwadrat")
 os.makedirs(BASE_DIR, exist_ok=True)
@@ -115,7 +115,6 @@ teleport = False
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
 
-# ścieżki do plików
 coin_sound = os.path.join(SOUNDS_DIR, "coin.wav")
 gameover_sound = os.path.join(SOUNDS_DIR, "gameover.wav")
 win_sound = os.path.join(SOUNDS_DIR, "I_Win.wav")
@@ -148,7 +147,7 @@ def game_run():
     global muzyka_player, kwadraty, przeszkody, monety, meta
 
     def play_sound(sound_path):
-        threading.Thread(target=playsound, args=(sound_path,), daemon=True).start()
+        subprocess.Popen(["afplay", sound_path])
     
     run.clear()
     napisFelix.clear()
