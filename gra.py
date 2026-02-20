@@ -21,7 +21,8 @@ threading.excepthook = excepthook
 
 import turtle
 import random
-import arcade
+from playsound import playsound
+import threading   # żeby nie blokowało gry
 import sys
 import os
 import json
@@ -111,14 +112,14 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
-ASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
 
-# wczytywanie muzyki
-muzyka2 = arcade.load_sound(os.path.join(SOUNDS_DIR, "coin.wav"))
-muzyka = arcade.load_sound(os.path.join(SOUNDS_DIR, "gameover.wav"))
-muzyka3 = arcade.load_sound(os.path.join(SOUNDS_DIR, "I_Win.wav"))
-muzyka_w_tle = arcade.load_sound(os.path.join(SOUNDS_DIR, "zone1.wav"))
+# ścieżki do plików
+coin_sound = os.path.join(SOUNDS_DIR, "coin.wav")
+gameover_sound = os.path.join(SOUNDS_DIR, "gameover.wav")
+win_sound = os.path.join(SOUNDS_DIR, "I_Win.wav")
+background_music = os.path.join(SOUNDS_DIR, "zone1.wav")
 
 # Szybkie rysowanie
 screen = turtle.Screen()
@@ -145,6 +146,9 @@ screen.tracer(0, 0)  # wyłącza animacje, będzie szybciej
 
 def game_run(): 
     global muzyka_player, kwadraty, przeszkody, monety, meta
+
+    def play_sound(sound_path):
+        threading.Thread(target=playsound, args=(sound_path,), daemon=True).start()
     
     run.clear()
     napisFelix.clear()
@@ -154,7 +158,7 @@ def game_run():
 
     screen.onkey(None, "space")
 
-    muzyka_player4 = arcade.play_sound(muzyka_w_tle)
+    play_sound(background_music)
     
     monety = []
     
@@ -270,7 +274,7 @@ def game_run():
             hud.write("GAME OVER", align="center", font=("Arial", 50, "bold"))
             game_active = False
             gracz.hideturtle()
-            muzyka_player = arcade.play_sound(muzyka)   
+            play_sound(gameover_sound)
             return
     
         # cofnięcie gracza na start
@@ -288,7 +292,7 @@ def game_run():
         gracz.hideturtle()
         komunikat.goto(0, 0)
         komunikat.write("You Win!!!", align="center", font=("Arial", 50, "bold")) 
-        muzyka_player3 = arcade.play_sound(muzyka3)
+        play_sound(win_sound)
         
     def przejdz_do_nastepnego_poziomu():
         global kwadraty, przeszkody, monety, meta, platforma, level, teleport, ile_trzeba_do_mety
@@ -499,8 +503,8 @@ def game_run():
                 save_score(score)
                 update_hud()
                 m.hideturtle()           # znika wizualnie
-                monety.remove(m)         # usuwa z listy, żeby nie liczyło się dalej
-                muzyka_player = arcade.play_sound(muzyka2)   
+                monety.remove(m)         # usuwa z listy, żeby nie liczyło się dalej 
+                play_sound(coin_sound)
                 break
         # zamiast kwadrat/2 używamy kwadrat
         if meta and abs(gracz.xcor() - meta.xcor()) < kwadrat and abs(gracz.ycor() - meta.ycor()) < kwadrat and points >= ile_trzeba_do_mety:
