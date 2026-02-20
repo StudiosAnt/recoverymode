@@ -116,7 +116,7 @@ ASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 coin_sound = os.path.join(BASE_DIR, "coin.wav")
 gameover_sound = os.path.join(BASE_DIR, "gameover.wav")
-win_sound = os.path.join(BASE_DIR, "I_Win.wav")
+win_sound = os.path.join(BASE_DIR, "I_win.wav")
 background_music = os.path.join(BASE_DIR, "zone1.wav")
 
 # Szybkie rysowanie
