@@ -28,29 +28,46 @@ def save_login(username, password):
     with open(LOGIN_FILE, "w") as f:
         json.dump({"username": username, "password": password}, f)
 
-def load_login():
-    """Ładuje dane logowania lub tworzy plik jeśli nie istnieje"""
-    if os.path.exists(LOGIN_FILE):
-        with open(LOGIN_FILE, "r") as f:
-            data = json.load(f)
-            return data.get("username"), data.get("password")
-    else:
-        # Jeśli plik nie istnieje, wyświetl okienko do wpisania danych
-        root = tk.Tk()
-        root.withdraw()  # Ukrywa główne okno Tkinter
-        messagebox.showinfo("Brak konta", "Nie znaleziono login.json. Utwórz konto.")
-        
-        username = simpledialog.askstring("Login", "Podaj nazwę użytkownika:")
-        password = simpledialog.askstring("Hasło", "Podaj hasło:", show="*")
-        
-        save_login(username, password)
-        root.destroy()
-        return username, password
+def register_account():
+    """Tworzy nowe konto, jeśli plik nie istnieje"""
+    root = tk.Tk()
+    root.withdraw()
+    messagebox.showinfo("Rejestracja", "Nie znaleziono konta. Utwórz konto.")
+    username = simpledialog.askstring("Rejestracja", "Podaj nazwę użytkownika:")
+    password = simpledialog.askstring("Rejestracja", "Podaj hasło:", show="*")
+    save_login(username, password)
+    root.destroy()
+    return username, password
 
-# Przykład użycia:
-user, pwd = load_login()
-print(f"Wczytano login: {user}, hasło: {pwd}")
+def login_account():
+    """Pyta o login i hasło i weryfikuje je"""
+    if not os.path.exists(LOGIN_FILE):
+        return register_account()
+    
+    with open(LOGIN_FILE, "r") as f:
+        data = json.load(f)
+        saved_user = data.get("username")
+        saved_pass = data.get("password")
+    
+    root = tk.Tk()
+    root.withdraw()
+    
+    while True:
+        username = simpledialog.askstring("Logowanie", "Podaj nazwę użytkownika:")
+        password = simpledialog.askstring("Logowanie", "Podaj hasło:", show="*")
+        
+        if username == saved_user and password == saved_pass:
+            messagebox.showinfo("Sukces", "Zalogowano pomyślnie!")
+            break
+        else:
+            messagebox.showerror("Błąd", "Niepoprawny login lub hasło. Spróbuj ponownie.")
+    
+    root.destroy()
+    return username, password
 
+# Użycie:
+user, pwd = login_account()
+print(f"Zalogowano: {user}")
 
 
 
