@@ -11,12 +11,27 @@ import turtle
 import random
 import arcade
 import os
+import json
+
+SAVE_FILE = "score.json"
+
+def save_score(score):
+    with open(SAVE_FILE, "w") as f:
+        json.dump({"score": score}, f)
+
+def load_score():
+    try:
+        with open(SAVE_FILE, "r") as f:
+            data = json.load(f)
+            return data.get("score", 0)
+    except FileNotFoundError:
+        return 0
 
 muzyka_player = None
 
 lives = 3
 points = 0  # licznik punktów
-score = 0
+score = load_score()
 level = 1
 max_poziom = 4
 ile_trzeba_do_mety = 150
@@ -402,6 +417,8 @@ def game_run():
         for m in monety:
             if abs(m.xcor() - gracz.xcor()) < kwadrat and abs(m.ycor() - gracz.ycor()) < kwadrat:
                 points += 10
+                score += 10
+                save_score(score)
                 update_hud()
                 m.hideturtle()           # znika wizualnie
                 monety.remove(m)         # usuwa z listy, żeby nie liczyło się dalej
@@ -415,6 +432,7 @@ def game_run():
             else:
                 level += 1
                 score += 100
+                save_score(score)
                 update_hud()
                 gracz.dy = 0
                 
