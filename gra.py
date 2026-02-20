@@ -119,9 +119,14 @@ gameover_sound = os.path.join(BASE_DIR, "gameover.wav")
 win_sound = os.path.join(BASE_DIR, "I_win.wav")
 #background_music = os.path.join(BASE_DIR, "zone1.wav")
 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# pełna ścieżka do pliku GIF
+bg_file = os.path.join(script_dir, "neon.gif")
+
 # Szybkie rysowanie
 screen = turtle.Screen()
-screen.bgpic("neon.gif")
+screen.bgpic(bg_file)
 screen.title("Jumping Square")
 
 napisFelix = turtle.Turtle()
