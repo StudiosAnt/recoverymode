@@ -24,51 +24,48 @@ os.makedirs(BASE_DIR, exist_ok=True)
 LOGIN_FILE = os.path.join(BASE_DIR, "login.json")
 
 def save_login(username, password):
-    """Zapisuje dane logowania do login.json"""
     with open(LOGIN_FILE, "w") as f:
         json.dump({"username": username, "password": password}, f)
 
-def register_account():
-    """Tworzy nowe konto, jeśli plik nie istnieje"""
-    root = tk.Tk()
-    root.withdraw()
-    messagebox.showinfo("Rejestracja", "Nie znaleziono konta. Utwórz konto.")
-    username = simpledialog.askstring("Rejestracja", "Podaj nazwę użytkownika:")
-    password = simpledialog.askstring("Rejestracja", "Podaj hasło:", show="*")
+def register_account(root):
+    messagebox.showinfo("Rejestracja", "Nie znaleziono konta. Utwórz konto.", parent=root)
+    username = simpledialog.askstring("Rejestracja", "Podaj nazwę użytkownika:", parent=root)
+    password = simpledialog.askstring("Rejestracja", "Podaj hasło:", show="*", parent=root)
     save_login(username, password)
-    root.destroy()
     return username, password
 
 def login_account():
-    """Zawsze pyta o login i hasło i weryfikuje je"""
+    root = tk.Tk()
+    root.title("Logowanie")
+    root.geometry("1x1")  # minimalne okno, żeby działało askstring
+    root.withdraw()  # ukrywamy główne okno
+    
     if not os.path.exists(LOGIN_FILE):
-        return register_account()
+        user, pwd = register_account(root)
+        root.destroy()
+        return user, pwd
     
     with open(LOGIN_FILE, "r") as f:
         data = json.load(f)
         saved_user = data.get("username")
         saved_pass = data.get("password")
     
-    root = tk.Tk()
-    root.withdraw()
-    
     while True:
-        username = simpledialog.askstring("Logowanie", "Podaj nazwę użytkownika:")
-        password = simpledialog.askstring("Logowanie", "Podaj hasło:", show="*")
+        username = simpledialog.askstring("Logowanie", "Podaj nazwę użytkownika:", parent=root)
+        password = simpledialog.askstring("Logowanie", "Podaj hasło:", show="*", parent=root)
         
         if username == saved_user and password == saved_pass:
-            messagebox.showinfo("Sukces", "Zalogowano pomyślnie!")
+            messagebox.showinfo("Sukces", "Zalogowano pomyślnie!", parent=root)
             break
         else:
-            messagebox.showerror("Błąd", "Niepoprawny login lub hasło. Spróbuj ponownie.")
+            messagebox.showerror("Błąd", "Niepoprawny login lub hasło. Spróbuj ponownie.", parent=root)
     
     root.destroy()
     return username, password
 
-# Uruchamiamy logowanie zawsze przy starcie gry
+# Uruchamiamy logowanie przy starcie gry
 user, pwd = login_account()
 print(f"Zalogowano: {user}")
-
 
 
 
