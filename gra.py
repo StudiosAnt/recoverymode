@@ -39,6 +39,8 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
+print("Score będzie zapisany tutaj:", os.path.abspath(SAVE_FILE))
+
 BASE_DIR = os.path.expanduser("~/Desktop/gamekwadrat")  # folder, w którym są dźwięki
 SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
 
