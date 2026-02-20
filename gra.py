@@ -42,7 +42,6 @@ teleport = False
 BASE_DIR = os.path.expanduser("~/Desktop/gamekwadrat")  # folder, w którym są dźwięki
 SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
 
-
 muzyka2 = arcade.load_sound(os.path.join(SOUNDS_DIR, "coin.wav"))
 muzyka = arcade.load_sound(os.path.join(SOUNDS_DIR, "gameover.wav"))
 muzyka3 = arcade.load_sound(os.path.join(SOUNDS_DIR, "I_Win.wav"))
