@@ -13,6 +13,47 @@ import arcade
 import os
 import sys
 import json
+import tkinter as tk
+from tkinter import simpledialog, messagebox
+
+# Folder gry
+BASE_DIR = os.path.expanduser("~/gamekwadrat")
+os.makedirs(BASE_DIR, exist_ok=True)
+
+# Plik login
+LOGIN_FILE = os.path.join(BASE_DIR, "login.json")
+
+def save_login(username, password):
+    """Zapisuje dane logowania do login.json"""
+    with open(LOGIN_FILE, "w") as f:
+        json.dump({"username": username, "password": password}, f)
+
+def load_login():
+    """Ładuje dane logowania lub tworzy plik jeśli nie istnieje"""
+    if os.path.exists(LOGIN_FILE):
+        with open(LOGIN_FILE, "r") as f:
+            data = json.load(f)
+            return data.get("username"), data.get("password")
+    else:
+        # Jeśli plik nie istnieje, wyświetl okienko do wpisania danych
+        root = tk.Tk()
+        root.withdraw()  # Ukrywa główne okno Tkinter
+        messagebox.showinfo("Brak konta", "Nie znaleziono login.json. Utwórz konto.")
+        
+        username = simpledialog.askstring("Login", "Podaj nazwę użytkownika:")
+        password = simpledialog.askstring("Hasło", "Podaj hasło:", show="*")
+        
+        save_login(username, password)
+        root.destroy()
+        return username, password
+
+# Przykład użycia:
+user, pwd = load_login()
+print(f"Wczytano login: {user}, hasło: {pwd}")
+
+
+
+
 
 BASE_DIR = os.path.expanduser("~/gamekwadrat")  # folder gry
 os.makedirs(BASE_DIR, exist_ok=True)            # tworzy folder jeśli go nie ma
