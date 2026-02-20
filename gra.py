@@ -544,7 +544,7 @@ def game_run():
                 przejdz_do_nastepnego_poziomu()
     
         screen.update()
-        screen.ontimer(gravity, 50)
+        screen.ontimer(gravity, 20)
     
     screen.listen()
     screen.onkey(move_left, "Left")
