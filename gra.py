@@ -146,7 +146,6 @@ def game_run():
     global muzyka_player, kwadraty, przeszkody, monety, meta
 
     def play_sound(sound_path):
-    """Odtwarzanie dźwięku na macOS lub Windows bez arcade"""
         if not os.path.exists(sound_path):
             print(f"Plik nie istnieje: {sound_path}")
             return
