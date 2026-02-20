@@ -11,6 +11,7 @@ import turtle
 import random
 import arcade
 import os
+import sys
 import json
 
 SAVE_FILE = "score.json"
@@ -38,8 +39,9 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
-BASE_DIR = "gamekwadrat"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# pliki dźwiękowe w tym samym folderze co skrypt
 muzyka2 = arcade.load_sound(os.path.join(BASE_DIR, "coin.wav"))
 muzyka = arcade.load_sound(os.path.join(BASE_DIR, "gameover.wav"))
 muzyka3 = arcade.load_sound(os.path.join(BASE_DIR, "I_Win.wav"))
