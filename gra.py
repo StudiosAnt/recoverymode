@@ -39,7 +39,7 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
-BASE_DIR = os.path.expanduser("~/gamekwadrat")  # folder, w którym są dźwięki
+BASE_DIR = os.path.expanduser("~/Desktop/gamekwadrat")  # folder, w którym są dźwięki
 SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
 
 
