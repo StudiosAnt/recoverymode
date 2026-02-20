@@ -14,7 +14,10 @@ import os
 import sys
 import json
 
-SAVE_FILE = "score.json"
+BASE_DIR = os.path.expanduser("~/gamekwadrat")  # folder gry
+os.makedirs(BASE_DIR, exist_ok=True)            # tworzy folder jeśli go nie ma
+
+SAVE_FILE = os.path.join(BASE_DIR, "score.json")  # plik score w folderze gry
 
 def save_score(score):
     with open(SAVE_FILE, "w") as f:
@@ -39,9 +42,10 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
-BASE_DIR = os.path.expanduser("~/Desktop/gamekwadrat")  # folder, w którym są dźwięki
+ASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
 
+# wczytywanie muzyki
 muzyka2 = arcade.load_sound(os.path.join(SOUNDS_DIR, "coin.wav"))
 muzyka = arcade.load_sound(os.path.join(SOUNDS_DIR, "gameover.wav"))
 muzyka3 = arcade.load_sound(os.path.join(SOUNDS_DIR, "I_Win.wav"))
