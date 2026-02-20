@@ -10,8 +10,8 @@
 import turtle
 import random
 import arcade
-import os
 import sys
+import os
 import json
 import tkinter as tk
 from tkinter import simpledialog, messagebox
@@ -40,7 +40,7 @@ def register_account():
     return username, password
 
 def login_account():
-    """Pyta o login i hasło i weryfikuje je"""
+    """Zawsze pyta o login i hasło i weryfikuje je"""
     if not os.path.exists(LOGIN_FILE):
         return register_account()
     
@@ -65,9 +65,11 @@ def login_account():
     root.destroy()
     return username, password
 
-# Użycie:
+# Uruchamiamy logowanie zawsze przy starcie gry
 user, pwd = login_account()
 print(f"Zalogowano: {user}")
+
+
 
 
 
