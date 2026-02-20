@@ -246,7 +246,7 @@ def game_run():
     gracz.dy = 0  # prędkość w pionie
     
     def lose_life():
-        global lives, game_active
+        global lives, game_active, muzyka_player
     
         lives -= 1
     
@@ -453,7 +453,7 @@ def game_run():
            gracz.dy = 15
     # grawitacja
     def gravity():
-        global points, level, game_active, teleport, score  # dodajemy global, żeby móc zwiększać punkty
+        global points, level, game_active, teleport, score, muzyka_player  # dodajemy global, żeby móc zwiększać punkty
             
         if not game_active:
             return
@@ -488,7 +488,7 @@ def game_run():
                 update_hud()
                 m.hideturtle()           # znika wizualnie
                 monety.remove(m)         # usuwa z listy, żeby nie liczyło się dalej
-                muzyka_player2 = arcade.play_sound(muzyka2)   
+                muzyka_player = arcade.play_sound(muzyka2)   
                 break
         # zamiast kwadrat/2 używamy kwadrat
         if meta and abs(gracz.xcor() - meta.xcor()) < kwadrat and abs(gracz.ycor() - meta.ycor()) < kwadrat and points >= ile_trzeba_do_mety:
