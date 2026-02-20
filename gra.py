@@ -39,12 +39,12 @@ ile_trzeba_do_mety = 150
 game_active = True
 teleport = False
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.expanduser("~/gamekwadrat")  # folder, w którym są dźwięki
+SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
 
-# pliki dźwiękowe w tym samym folderze co skrypt
-muzyka2 = arcade.load_sound(os.path.join(BASE_DIR, "coin.wav"))
-muzyka = arcade.load_sound(os.path.join(BASE_DIR, "gameover.wav"))
-muzyka3 = arcade.load_sound(os.path.join(BASE_DIR, "I_Win.wav"))
+muzyka2 = arcade.load_sound(os.path.join(SOUNDS_DIR, "coin.wav"))
+muzyka = arcade.load_sound(os.path.join(SOUNDS_DIR, "gameover.wav"))
+muzyka3 = arcade.load_sound(os.path.join(SOUNDS_DIR, "I_Win.wav"))
 
 # Szybkie rysowanie
 screen = turtle.Screen()
