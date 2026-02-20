@@ -121,7 +121,7 @@ win_sound = os.path.join(BASE_DIR, "I_win.wav")
 
 # Szybkie rysowanie
 screen = turtle.Screen()
-screen.bgcolor("neon.gif")
+screen.bgpic("neon.gif")
 screen.title("Jumping Square")
 
 napisFelix = turtle.Turtle()
