@@ -18,8 +18,6 @@ from tkinter import simpledialog, messagebox
 
 BASE_DIR = os.path.expanduser("~/gamekwadrat")
 os.makedirs(BASE_DIR, exist_ok=True)
-
-# Plik login
 LOGIN_FILE = os.path.join(BASE_DIR, "login.json")
 
 def save_login(username, password):
@@ -34,38 +32,38 @@ def register_account(root):
     return username, password
 
 def login_account():
+    # utwórz główne okno, ale nie chowaj od razu
     root = tk.Tk()
     root.title("Logowanie")
-    root.geometry("1x1")  # minimalne okno, żeby działało askstring
-    root.withdraw()  # ukrywamy główne okno
+    root.geometry("200x100")
+    root.update()  # wymusz aktualizację okna
     
     if not os.path.exists(LOGIN_FILE):
         user, pwd = register_account(root)
         root.destroy()
         return user, pwd
-    
+
     with open(LOGIN_FILE, "r") as f:
         data = json.load(f)
         saved_user = data.get("username")
         saved_pass = data.get("password")
-    
+
     while True:
         username = simpledialog.askstring("Logowanie", "Podaj nazwę użytkownika:", parent=root)
         password = simpledialog.askstring("Logowanie", "Podaj hasło:", show="*", parent=root)
-        
+
         if username == saved_user and password == saved_pass:
             messagebox.showinfo("Sukces", "Zalogowano pomyślnie!", parent=root)
             break
         else:
             messagebox.showerror("Błąd", "Niepoprawny login lub hasło. Spróbuj ponownie.", parent=root)
-    
+
     root.destroy()
     return username, password
 
-# Uruchamiamy logowanie przy starcie gry
+# test
 user, pwd = login_account()
 print(f"Zalogowano: {user}")
-
 
 
 
