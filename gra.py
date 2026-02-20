@@ -127,7 +127,7 @@ bg_file = os.path.join(script_dir, "neon.gif")
 # Szybkie rysowanie
 screen = turtle.Screen()
 screen.bgpic(bg_file)
-screen.title("Jumping Square")
+screen.title("Jumping Square Pro Neon")
 
 napisFelix = turtle.Turtle()
 
@@ -238,7 +238,7 @@ def game_run():
             if val == 1:
                 k = turtle.Turtle()
                 k.shape("square")
-                k.color("white")
+                k.color("black")
                 k.penup()
                 k.speed(0)
                 k.goto(x*kwadrat, -y*kwadrat)
@@ -423,7 +423,7 @@ def game_run():
                 if val == 1:
                     k = turtle.Turtle()
                     k.shape("square")
-                    k.color("white")
+                    k.color("black")
                     k.penup()
                     k.speed(0)
                     k.goto(x*kwadrat, -y*kwadrat)
