@@ -32,11 +32,12 @@ def register_account(root):
     return username, password
 
 def login_account():
-    # utwórz główne okno, ale nie chowaj od razu
     root = tk.Tk()
     root.title("Logowanie")
-    root.geometry("200x100")
-    root.update()  # wymusz aktualizację okna
+    
+    # ważne: root musi być widoczny do działania askstring
+    root.geometry("200x100+500+300")
+    root.update()  # odświeżenie okna
     
     if not os.path.exists(LOGIN_FILE):
         user, pwd = register_account(root)
@@ -48,22 +49,25 @@ def login_account():
         saved_user = data.get("username")
         saved_pass = data.get("password")
 
-    while True:
+    logged_in = False
+    while not logged_in:
         username = simpledialog.askstring("Logowanie", "Podaj nazwę użytkownika:", parent=root)
         password = simpledialog.askstring("Logowanie", "Podaj hasło:", show="*", parent=root)
 
         if username == saved_user and password == saved_pass:
             messagebox.showinfo("Sukces", "Zalogowano pomyślnie!", parent=root)
-            break
+            logged_in = True
         else:
             messagebox.showerror("Błąd", "Niepoprawny login lub hasło. Spróbuj ponownie.", parent=root)
 
     root.destroy()
     return username, password
 
-# test
+# --------- START LOGOWANIA ---------
 user, pwd = login_account()
 print(f"Zalogowano: {user}")
+
+# Teraz uruchamiasz Turtle/Arcade dopiero po zakończeniu logowania
 
 
 
