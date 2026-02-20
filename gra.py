@@ -24,6 +24,7 @@ import random
 import sys
 import os
 import json
+import subprocess
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 import threading   # żeby nie blokowało gry
