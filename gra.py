@@ -141,6 +141,8 @@ def game_run():
     screen.update()
 
     screen.onkey(None, "space")
+
+    muzyka_player4 = arcade.play_sound(muzyka_w_tle)
     
     monety = []
     
