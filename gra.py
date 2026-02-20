@@ -106,6 +106,7 @@ SOUNDS_DIR = os.path.join(BASE_DIR, "sounds")
 muzyka2 = arcade.load_sound(os.path.join(SOUNDS_DIR, "coin.wav"))
 muzyka = arcade.load_sound(os.path.join(SOUNDS_DIR, "gameover.wav"))
 muzyka3 = arcade.load_sound(os.path.join(SOUNDS_DIR, "I_Win.wav"))
+muzyka_w_tle = arcade.load_sound(os.path.join(SOUNDS_DIR, "zone1.wav"))
 
 # Szybkie rysowanie
 screen = turtle.Screen()
